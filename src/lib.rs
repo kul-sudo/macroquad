@@ -743,7 +743,7 @@ impl EventHandler for Stage {
             get_context().frame_time = date::now() - get_context().last_frame_time;
             get_context().last_frame_time = date::now();
 
-            #[cfg(any(target_arch = "wasm32", target_os = "linux"))]
+            #[cfg(any(target_arch = "wasm32", target_os = "linux", target_os = "freebsd"))]
             {
                 let _z = telemetry::ZoneGuard::new("glFinish/glFLush");
 
